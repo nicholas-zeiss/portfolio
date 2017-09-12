@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholas-zeiss/portfolio.git"
+  },
+  "author": "Nicholas Zeiss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicholas-zeiss/portfolio/issues"
+  },
+  "homepage": "https://github.com/nicholas-zeiss/portfolio#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
