@@ -13,8 +13,8 @@ const path = require('path');
 const app = express();
 
 app.get('/', (req, res) => {
-	res.sendFile(path.resolve(__dirname, '../../index.html'));
+	res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
-app.listen(80);
+app.listen(4080);
 
