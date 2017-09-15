@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint app/client/** app/server/**",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "webpack --watch && sass --watch app/client/styles",
+    "prestart": "webpack --watch & sass --watch app/client/styles:app/client/styles &",
     "start": "nodemon app/server/index.js"
   },
   "repository": {

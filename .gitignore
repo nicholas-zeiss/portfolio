@@ -1,3 +1,6 @@
+
+#Default values for Node.js
+
 # Logs
 logs
 *.log
@@ -56,4 +59,12 @@ typings/
 
 # dotenv environment variables file
 .env
+
+
+#custom values
+
+.sass-cache/
+*.css
+*.css.map
+
 

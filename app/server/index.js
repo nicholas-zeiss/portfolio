@@ -1,8 +1,5 @@
 /**
- * 
- *
- *
- *
+ *  Serves up static files only
  */
 
 
