@@ -1,45 +1,27 @@
 
 
+@import 'mixins';
+@import 'animations';
+
+
 $blackish: #1d1c1c;
-$whiteish: #f5f5f5;
+$whitish: #f5f5f5;
 $offwhite: #959595;
 
 
-@mixin transition($props, $durations, $delays) {
-	@if $props {
-		-webkit-transition-property: $props;
-			 -moz-transition-property: $props;
-				-ms-transition-property: $props;
-				 -o-transition-property: $props;
-	}
-
-	@if $durations {
-		-webkit-transition-duration: $durations;
-			 -moz-transition-duration: $durations;
-				-ms-transition-duration: $durations;
-				 -o-transition-duration: $durations;
-	}
-
-	@if $delays {
-		-webkit-transition-delay: $delays;
-			 -moz-transition-delay: $delays;
-				-ms-transition-delay: $delays;
-				 -o-transition-delay: $delays;
-	}
-}
-
-
-body, button, input, h1, h2, h3, h4, h5, h6, p {
+a, body, button, input, h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 	padding: 0;
 	border-radius: 0;
 }
 
 
-a {
+a, button {
 	outline: none;
+	border: none;
 	text-decoration: none;
 	color: inherit;
+	background-color: inherit;
 }
 
 
@@ -47,7 +29,7 @@ body {
 	font: 16px 'Montserrat', sans-serif;
 
 	color: $blackish;
-	background-color: $whiteish;
+	background-color: $whitish;
 }
 	
 
@@ -68,64 +50,99 @@ div[data-reactroot] {
 
 
 header {
+}
+
+
+#navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 1rem 3rem;
+	padding: 1rem 2rem;
 
-	color: $whiteish;
+	color: $whitish;
 	background-color: $blackish;
 }
 
 
-#icon {
-	h2 {
-		margin-bottom: .25rem;
-	}
+#icon p {
+	margin-left: .4rem;
+
+	font-weight: 300;
+}
+
+
+#burger {
+	display: none;
 }
 
 
 #links {
-	a {
+}
+
+
+#links a {
+	position: relative;
+
+	margin: .5rem .75rem;
+
+	color: $offwhite;
+
+	@include transition(color, .25s, null);
+
+	&.active, &:hover {
+		color: $whitish;
+	
+		&::after {
+			visibility: visible;
+			
+			left: 0;
+			right: 0;
+
+			background-color: $whitish;
+			
+			@include transition(null, null, 0s);
+		}
+	}
+
+	&::after {
+		visibility: hidden;
+		
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		bottom: -3px;
+		
+		height: 2px;
+		content: '';
+
+		background-color: $offwhite;
+		
+		@include transition((background-color, left, right, visibility), (.25s, .25s, .25s, 0s), (0s, 0s, 0s, .25s));
+	}
+}
+
+
+@media (max-width: 650px) {
+	#links {
+		position: fixed;
+		right: 2rem;
+		top: -25px;
+
+		@include animation(listAscend, .5s, ease-in);
+	}
+}
+
+@media (min-width: 651px) {
+	#links {
 		position: relative;
 
-		margin: .5rem .75rem;
-
-		color: $offwhite;
-
-		@include transition(color, .25s, null);
-
-		&.active, &:hover {
-			color: $whiteish;
-		
-			&::after {
-				visibility: visible;
-				
-				left: 0;
-				right: 0;
-
-				background-color: $whiteish;
-				
-				@include transition(null, null, 0s);
-			}
-		}
-
-		&::after {
-			visibility: hidden;
-			
-			position: absolute;
-			left: 50%;
-			right: 50%;
-			bottom: -3px;
-			
-			height: 2px;
-			content: '';
-
-			background-color: $offwhite;
-			
-			@include transition((background-color left right visibility), (.25s .25s .25s 0s), (0s 0s 0s .25s));
-		}
+		@include animation(listDescend, .5s, ease-out);
 	}
 }
 
