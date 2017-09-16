@@ -26,16 +26,24 @@ class Portfolio extends React.Component {
 			<Router>
 				<div>
 					<header>
-						<div id='icon'>
-							<h2>NICK ZEISS</h2>
-							<h4>Full Stack Developer</h4>
-						</div>
+						<div id='navbar'>
+							<div id='icon'>
+								<h2>NICK ZEISS</h2>
+								<p>Full Stack Developer</p>
+							</div>
 
-						<div id='links'>
-							<NavLink exact to='/'>HOME</NavLink>
-							<NavLink to='/about'>ABOUT</NavLink>
-							<NavLink to='/projects'>PROJECTS</NavLink>
-							<NavLink to='/contact'>CONTACT</NavLink>
+							<div id='burger'>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+
+							<div id='links'>
+								<NavLink exact to='/'>HOME</NavLink>
+								<NavLink to='/about'>ABOUT</NavLink>
+								<NavLink to='/projects'>PROJECTS</NavLink>
+								<NavLink to='/contact'>CONTACT</NavLink>
+							</div>
 						</div>
 					</header>
 

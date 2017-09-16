@@ -1,0 +1,19 @@
+
+
+@keyframes listDescend {
+	0% {
+		top: -50px;
+	} 100% {
+		top: 0;
+	}
+}
+
+
+@keyframes listAscend {
+	0% {
+		top: 31px;
+	} 100% {
+		top: -25px;
+	}
+}
+

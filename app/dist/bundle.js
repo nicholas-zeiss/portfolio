@@ -22524,40 +22524,51 @@ var Portfolio = function (_React$Component) {
 						null,
 						_react2.default.createElement(
 							'div',
-							{ id: 'icon' },
+							{ id: 'navbar' },
 							_react2.default.createElement(
-								'h2',
-								null,
-								'NICK ZEISS'
+								'div',
+								{ id: 'icon' },
+								_react2.default.createElement(
+									'h2',
+									null,
+									'NICK ZEISS'
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'Full Stack Developer'
+								)
 							),
 							_react2.default.createElement(
-								'h4',
-								null,
-								'Full Stack Developer'
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ id: 'links' },
-							_react2.default.createElement(
-								_reactRouterDom.NavLink,
-								{ exact: true, to: '/' },
-								'HOME'
+								'div',
+								{ id: 'burger' },
+								_react2.default.createElement('span', null),
+								_react2.default.createElement('span', null),
+								_react2.default.createElement('span', null)
 							),
 							_react2.default.createElement(
-								_reactRouterDom.NavLink,
-								{ to: '/about' },
-								'ABOUT'
-							),
-							_react2.default.createElement(
-								_reactRouterDom.NavLink,
-								{ to: '/projects' },
-								'PROJECTS'
-							),
-							_react2.default.createElement(
-								_reactRouterDom.NavLink,
-								{ to: '/contact' },
-								'CONTACT'
+								'div',
+								{ id: 'links' },
+								_react2.default.createElement(
+									_reactRouterDom.NavLink,
+									{ exact: true, to: '/' },
+									'HOME'
+								),
+								_react2.default.createElement(
+									_reactRouterDom.NavLink,
+									{ to: '/about' },
+									'ABOUT'
+								),
+								_react2.default.createElement(
+									_reactRouterDom.NavLink,
+									{ to: '/projects' },
+									'PROJECTS'
+								),
+								_react2.default.createElement(
+									_reactRouterDom.NavLink,
+									{ to: '/contact' },
+									'CONTACT'
+								)
 							)
 						)
 					),

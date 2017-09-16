@@ -1,0 +1,45 @@
+
+
+@mixin transition($props, $durations, $delays: 0s) {
+	@if $props {
+		-webkit-transition-property: $props;
+			 -moz-transition-property: $props;
+				-ms-transition-property: $props;
+				 -o-transition-property: $props;
+	}
+
+	@if $durations {
+		-webkit-transition-duration: $durations;
+			 -moz-transition-duration: $durations;
+				-ms-transition-duration: $durations;
+				 -o-transition-duration: $durations;
+	}
+
+	-webkit-transition-delay: $delays;
+		 -moz-transition-delay: $delays;
+			-ms-transition-delay: $delays;
+			 -o-transition-delay: $delays;
+}
+
+
+@mixin animation($names, $durations, $timing: ease-in) {
+	@if $names {
+		-webkit-animation-name: $names;
+			 -moz-animation-name: $names;
+				-ms-animation-name: $names;
+				 -o-animation-name: $names;
+	}
+
+	@if $durations {
+		-webkit-animation-duration: $durations;
+			 -moz-animation-duration: $durations;
+				-ms-animation-duration: $durations;
+				 -o-animation-duration: $durations;
+	}
+
+	-webkit-animation-timing-function: $timing;
+		 -moz-animation-timing-function: $timing;
+			-ms-animation-timing-function: $timing;
+			 -o-animation-timing-function: $timing;
+}
+
