@@ -103,7 +103,7 @@ header {
 		color: $white;
 	
 		&::after {
-			visibility: visible;
+			// visibility: visible;
 			
 			left: 0;
 			right: 0;
@@ -113,7 +113,7 @@ header {
 	}
 
 	&::after {
-		visibility: hidden;
+		// visibility: hidden;
 		
 		position: absolute;
 		left: 50%;
