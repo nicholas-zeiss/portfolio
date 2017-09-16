@@ -4,8 +4,8 @@
 @import 'animations';
 
 
-$blackish: #1d1c1c;
-$whitish: #f5f5f5;
+$black: #1d1c1c;
+$white: #f5f5f5;
 $offwhite: #959595;
 
 
@@ -28,8 +28,8 @@ a, button {
 body {
 	font: 16px 'Montserrat', sans-serif;
 
-	color: $blackish;
-	background-color: $whitish;
+	color: $black;
+	background-color: $white;
 }
 	
 
@@ -65,8 +65,8 @@ header {
 
 	padding: 1rem 2rem;
 
-	color: $whitish;
-	background-color: $blackish;
+	color: $white;
+	background-color: $black;
 }
 
 
@@ -77,16 +77,11 @@ header {
 }
 
 
-#burger {
-	display: none;
+.links {
 }
 
 
-#links {
-}
-
-
-#links a {
+#navbar > .links a {
 	position: relative;
 
 	margin: .5rem .75rem;
@@ -96,7 +91,7 @@ header {
 	@include transition(color, .25s, null);
 
 	&.active, &:hover {
-		color: $whitish;
+		color: $white;
 	
 		&::after {
 			visibility: visible;
@@ -104,7 +99,7 @@ header {
 			left: 0;
 			right: 0;
 
-			background-color: $whitish;
+			background-color: $white;
 			
 			@include transition(null, null, 0s);
 		}
@@ -128,21 +123,108 @@ header {
 }
 
 
-@media (max-width: 650px) {
-	#links {
-		position: fixed;
-		right: 2rem;
-		top: -25px;
+#mobile-nav {
+	position: fixed;
 
-		@include animation(listAscend, .5s, ease-in);
+	top: 1rem;
+	right: -4rem;
+
+	margin: .5rem 0;
+
+	@include transition(right, .5s, null);
+	
+	#burger {
+
+		@include transition(transform, .25s, null);
+
+		div {
+			width: 2.5rem;
+			height: 5px;
+
+			margin: .5rem 0;
+
+			background-color: $white;
+		}
+
+		 div:first-child {
+			margin-top: 0;
+		}
+
+		&:hover {
+			transform: scale(1.2);
+		}
 	}
 }
 
-@media (min-width: 651px) {
-	#links {
+
+#mobile-nav .links {
+	position: fixed;
+
+	top: 80px;
+	right: -11.5rem;
+
+	width: 7rem;
+	height: auto;
+
+	padding: 0 .75rem .75rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+
+	background-color: $black;
+
+	@include transition(right, .5s, null);
+
+	a {
+		margin: .5rem 1rem;
+	
+		color: $offwhite;
+
+		@include transition(color, .25s, null);
+
+		&.active, &:hover {
+			color: $white;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+
+#mobile-nav .links.show {
+	right: 0;
+}
+
+
+
+@media (max-width: 575px) {
+	#navbar > .links {
+		position: fixed;
+		top: -25px;
+		right: 2rem;
+
+		@include animation(listAscend, .5s, ease-in);
+	}
+
+	#mobile-nav {
+		right: 2rem;
+	}
+}
+
+@media (min-width: 576px) {
+	#navbar > .links {
 		position: relative;
 
 		@include animation(listDescend, .5s, ease-out);
+	}
+
+	#mobile-nav {
+		.links, .links.show {
+			right: -11.5rem;
+		}
 	}
 }
 

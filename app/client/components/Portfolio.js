@@ -5,11 +5,12 @@
  **/
 
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import About from './About';
 import Contact from './Contact';
 import Home from './Home';
+import NavLinks from './NavLinks';
 import Projects from './Projects';
 
 
@@ -17,7 +18,14 @@ class Portfolio extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			showSideNav: false
+		};
+	}
+
+
+	toggleNav() {
+		this.setState({ showSideNav: !this.state.showSideNav });
 	}
 
 
@@ -29,20 +37,20 @@ class Portfolio extends React.Component {
 						<div id='navbar'>
 							<div id='icon'>
 								<h2>NICK ZEISS</h2>
-								<p>Full Stack Developer</p>
+								<p>Web Developer</p>
 							</div>
 
-							<div id='burger'>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
+							<NavLinks />							
 
-							<div id='links'>
-								<NavLink exact to='/'>HOME</NavLink>
-								<NavLink to='/about'>ABOUT</NavLink>
-								<NavLink to='/projects'>PROJECTS</NavLink>
-								<NavLink to='/contact'>CONTACT</NavLink>
+							<div id='mobile-nav' onClick={this.toggleNav.bind(this)}>
+
+								<div id='burger'>
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+
+								<NavLinks show={this.state.showSideNav}/>
 							</div>
 						</div>
 					</header>

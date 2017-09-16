@@ -17,3 +17,40 @@
 	}
 }
 
+
+@keyframes burgerIn {
+	0% {
+		right: -4rem;
+	} 100% {
+		right: 2rem;
+	}
+}
+
+
+@keyframes burgerOut {
+	0% {
+		right: 2rem;
+	} 100% {
+		right: -4rem;
+	}
+}
+
+
+@keyframes sideNavIn {
+	0% {
+		right: -11.5rem;
+	} 100% {
+		right: 0;
+	}
+}
+
+
+@keyframes sideNavOut {
+	0% {
+		right: 0;
+	} 100% {
+		right: -11.5rem;
+	}
+}
+
+
