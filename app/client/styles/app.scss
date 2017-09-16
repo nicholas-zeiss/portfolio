@@ -1,34 +1,131 @@
 
 
-$background: #f5f5f5;
-$primary: #1d1c1c;
+$blackish: #1d1c1c;
+$whiteish: #f5f5f5;
+$offwhite: #959595;
 
 
-@mixin bare-content() {
+@mixin transition($props, $durations, $delays) {
+	@if $props {
+		-webkit-transition-property: $props;
+			 -moz-transition-property: $props;
+				-ms-transition-property: $props;
+				 -o-transition-property: $props;
+	}
+
+	@if $durations {
+		-webkit-transition-duration: $durations;
+			 -moz-transition-duration: $durations;
+				-ms-transition-duration: $durations;
+				 -o-transition-duration: $durations;
+	}
+
+	@if $delays {
+		-webkit-transition-delay: $delays;
+			 -moz-transition-delay: $delays;
+				-ms-transition-delay: $delays;
+				 -o-transition-delay: $delays;
+	}
+}
+
+
+body, button, input, h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 	padding: 0;
 	border-radius: 0;
 }
 
 
-body, button, input, h1, h2, h3, h4, h5, h6, p {
-	@include bare-content();
+a {
+	outline: none;
+	text-decoration: none;
+	color: inherit;
 }
 
 
-body {	
+body {
 	font: 16px 'Montserrat', sans-serif;
 
-	background-color: $background;
-	color: $primary;
+	color: $blackish;
+	background-color: $whiteish;
+}
+	
+
+h2, h3 {
+	font-weight: 600;
 }
 
 
+h4, h5, h6 {
+	font-weight: 400;
+}
 
 
+div[data-reactroot] {
+	width: 100vw;
+	height: 100vh;
+}
 
 
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 1rem 3rem;
+
+	color: $whiteish;
+	background-color: $blackish;
+}
 
 
+#icon {
+	h2 {
+		margin-bottom: .25rem;
+	}
+}
 
+
+#links {
+	a {
+		position: relative;
+
+		margin: .5rem .75rem;
+
+		color: $offwhite;
+
+		@include transition(color, .25s, null);
+
+		&.active, &:hover {
+			color: $whiteish;
+		
+			&::after {
+				visibility: visible;
+				
+				left: 0;
+				right: 0;
+
+				background-color: $whiteish;
+				
+				@include transition(null, null, 0s);
+			}
+		}
+
+		&::after {
+			visibility: hidden;
+			
+			position: absolute;
+			left: 50%;
+			right: 50%;
+			bottom: -3px;
+			
+			height: 2px;
+			content: '';
+
+			background-color: $offwhite;
+			
+			@include transition((background-color left right visibility), (.25s .25s .25s 0s), (0s 0s 0s .25s));
+		}
+	}
+}
 
