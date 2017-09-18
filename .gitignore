@@ -1,4 +1,3 @@
-app/dist/bundle.js
 
 #Default values for Node.js
 
@@ -64,9 +63,14 @@ typings/
 
 #custom values
 
+.DS_Store
+
 .sass-cache/
 *.css
 *.css.map
 
+app/dist
+
+app/client/images
 
 
