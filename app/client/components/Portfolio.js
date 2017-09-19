@@ -55,7 +55,7 @@ class Portfolio extends React.Component {
 						</div>
 					</header>
 
-					<Route exact path='/' component={Home}/>
+					<Route path='/home' component={Home}/>
 					<Route path='/about' component={About}/>
 					<Route path='/contact' component={Contact}/>
 					<Route path='/projects' component={Projects}/>

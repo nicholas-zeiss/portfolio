@@ -9,7 +9,7 @@
 
 
 export default class Parallax {
-	constructor(container, speed = .4, name = 'parallax') {
+	constructor(container, speed = .5, name = 'parallax') {
 		this.container = container;
 		this.speed = speed;
 		this.name = name;
@@ -58,9 +58,7 @@ export default class Parallax {
 		let scrollPos = document.body.scrollTop;
 
 		this.elements.forEach(el => {
-			if (scrollPos <= el.offsetTop || scrollPos + this.screenHeight >= el.offsetTop + el.offsetHeight) {
-				el.style.cssText = 'background-position: 0px ' + this.getOffset(scrollPos, el) + 'px';
-			}
+			el.style.cssText = 'background-position: 0px ' + this.getOffset(scrollPos, el) + 'px';
 		});
 	}
 
@@ -72,10 +70,18 @@ export default class Parallax {
 
 
 	getOffset(scrollPos, el) {
-		let elCenter = el.offsetTop + el.offsetHeight / 2;
-		let centerOffset = scrollPos + this.screenHeight / 2 - elCenter;
+		if (scrollPos + this.screenHeight < el.offsetTop) {
+			return 0;
 		
-		return centerOffset / (this.screenHeight / 2) * this.speed * el.offsetHeight;
+		} else if (scrollPos > el.offsetTop + el.offsetHeight) {
+			return -el.offsetHeight;
+		
+		} else {
+			let a = el.offsetTop - this.screenHeight;
+			let b = el.offsetTop + el.offsetHeight;
+
+			return -el.offsetHeight * this.speed * (scrollPos / (b - a) - a / (b - a)) / 2;
+		}		
 	}
 }
 
