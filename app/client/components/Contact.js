@@ -20,8 +20,14 @@ class Contact extends React.Component {
 		return (
 			<div id='contact'>
 				<form action='/email' method='post'>
-					<input id='name' type='text' name='name' placeholder='Name *' required></input>
-					<input id='email' type='email' name='email' placeholder='Email address *' required></input>
+					<div className='form-row'>
+						<input type='text' name='name' placeholder='Name *' required></input>
+						<input id='email' type='email' name='email' placeholder='Email address *' required></input>
+					</div>
+					<div className='form-row'>
+						<input type='text' name='phone' placeholder='Phone number' required></input>
+						<input type='url' name='site' placeholder='Website' required></input>
+					</div>
 					<textarea id='message' name='message' placeholder='Message' required></textarea>
 					<input id='submit' type='submit' value='Submit'></input>
 					<span>* Required</span>

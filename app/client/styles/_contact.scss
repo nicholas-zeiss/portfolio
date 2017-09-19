@@ -1,18 +1,23 @@
 
 
 @import 'colors';
+@import 'mixins';
 
 
 #contact {
 	box-sizing: border-box;
 	width: 100vw;
-	height: calc(100vh - 80px);
+	min-height: calc(100vh - 80px);
 	
-	padding: 5rem 20vw 0;
+	padding: 7.5rem 0 0;
 
 	background-color: $grey;
 
 	form {
+		width: 600px;
+
+		margin: 0 auto;
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -31,10 +36,10 @@
 			font-weight: 300;
 
 			color: $white;
-			background-color: $black;
+			background-color: $grey;
 		}
 	
-		#contact-info {
+		.form-row {
 			box-sizing: border-box;
 			width: 100%;
 
@@ -44,6 +49,7 @@
 			input {
 				box-sizing: border-box;
 				width: calc(50% - 1rem);
+				max-width: 15rem;
 			}
 		}
 
@@ -55,14 +61,51 @@
 
 		#submit {
 			padding: .5rem 1.5rem;
+			border-color: $red;
+			border-radius: 35px;
 
 			font-size: 1.25rem;
+
+			@include transition((background-color, padding), .25s);
+
+			&:hover {
+				padding: .5rem 3rem;
+				background-color: $red;
+			}
 		}
 
 		span {
 			margin-top: 0;
 			color: $white;
 		}
+	}
+}
+
+
+@media (max-width: 540px) {
+	#contact > form > * {
+		margin: .75rem 0;
+	}
+
+	#contact > form > .form-row {
+		flex-direction: column;
+
+		input {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		input:first-child {
+			margin-bottom: 1.5rem;
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	#contact > form {
+		max-width: 600px;
+		min-width: 300px;
+		width: calc(100vw - 2rem);
 	}
 }
 

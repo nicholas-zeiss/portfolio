@@ -73,6 +73,14 @@ header {
 		right: 2rem;
 
 		@include transition(top, .5s);
+
+		a:first-child {
+			margin-left: 0;
+		}
+
+		a:last-child {
+			margin-right: 0;
+		}
 	}
 }
 
@@ -83,7 +91,7 @@ header {
 }
 
 
-#navbar > .links a {
+.links a {
 	position: relative;
 	
 	margin: .5rem .75rem;
@@ -170,20 +178,12 @@ header {
 
 	@include transition(right, .5s);
 
-	a {
-		margin: .5rem 1rem;
-	
-		color: $offwhite;
+	a:first-child {
+		margin-top: 1rem;
+	}
 
-		@include transition(color, .25s);
-
-		&.active, &:hover {
-			color: $white;
-		}
-
-		&:first-child {
-			margin-top: 0;
-		}
+	a:last-child {
+		margin-bottom: 1rem;
 	}
 }
 

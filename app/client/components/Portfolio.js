@@ -42,9 +42,9 @@ class Portfolio extends React.Component {
 
 							<NavLinks />							
 
-							<div id='mobile-nav' onClick={this.toggleNav.bind(this)}>
+							<div id='mobile-nav'>
 
-								<div id='burger'>
+								<div id='burger' onClick={this.toggleNav.bind(this)}>
 									<div></div>
 									<div></div>
 									<div></div>
