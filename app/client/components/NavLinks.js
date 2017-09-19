@@ -8,7 +8,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavLinks = props =>  {
-	
 	return (
 		<div className={'links' + (props.show ? ' show' : '') }>
 			<NavLink exact to='/'>HOME</NavLink>
