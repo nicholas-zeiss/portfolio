@@ -73,4 +73,6 @@ app/dist
 
 app/client/images
 
+app/server/auth.js
+
 
