@@ -22,25 +22,25 @@
 }
 
 
-@mixin animation($names, $durations, $timing: ease-in) {
-	@if $names {
-		-webkit-animation-name: $names;
-			 -moz-animation-name: $names;
-				-ms-animation-name: $names;
-				 -o-animation-name: $names;
-	}
+// @mixin animation($names, $durations, $timing: ease-in) {
+// 	@if $names {
+// 		-webkit-animation-name: $names;
+// 			 -moz-animation-name: $names;
+// 				-ms-animation-name: $names;
+// 				 -o-animation-name: $names;
+// 	}
 
-	@if $durations {
-		-webkit-animation-duration: $durations;
-			 -moz-animation-duration: $durations;
-				-ms-animation-duration: $durations;
-				 -o-animation-duration: $durations;
-	}
+// 	@if $durations {
+// 		-webkit-animation-duration: $durations;
+// 			 -moz-animation-duration: $durations;
+// 				-ms-animation-duration: $durations;
+// 				 -o-animation-duration: $durations;
+// 	}
 
-	-webkit-animation-timing-function: $timing;
-		 -moz-animation-timing-function: $timing;
-			-ms-animation-timing-function: $timing;
-			 -o-animation-timing-function: $timing;
-}
+// 	-webkit-animation-timing-function: $timing;
+// 		 -moz-animation-timing-function: $timing;
+// 			-ms-animation-timing-function: $timing;
+// 			 -o-animation-timing-function: $timing;
+// }
 
 

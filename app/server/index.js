@@ -40,9 +40,23 @@ app.get('*', (req, res) => {
 
 
 app.post('/email', (req, res) => {
+	let messageText = [
+		req.body.name,
+		req.body.email,
+		req.body.phone,
+		req.body.site,
+		req.body.message
+	];
+
+	messageText = (
+		messageText
+		.filter(str => str)
+		.join('\n~~~~~~~~~~~~~~~~\n')
+	);
+
 	let message = Object.assign({
-		subject: `${req.body.name}: ${req.body.email}`,
-		text: req.body.message
+		subject: req.body.name,
+		text: messageText
 	}, messageDefaults);
 
 	transporter.sendMail(message, (err, info) => {

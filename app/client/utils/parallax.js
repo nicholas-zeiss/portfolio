@@ -9,7 +9,7 @@
 
 
 export default class Parallax {
-	constructor(container, speed = .5, name = 'parallax') {
+	constructor(container, speed = 1, name = 'parallax') {
 		this.container = container;
 		this.speed = speed;
 		this.name = name;
@@ -29,7 +29,7 @@ export default class Parallax {
 
 
 	init() {
-		if (this.container.parentElement.parentElement != document.getElementById('root')) {
+		if (this.container.parentElement != document.getElementById('app')) {
 			throw new Error('Parallax container must be at root level of app');
 		}
 
@@ -58,7 +58,7 @@ export default class Parallax {
 		let scrollPos = document.body.scrollTop;
 
 		this.elements.forEach(el => {
-			el.style.cssText = 'background-position: 0px ' + this.getOffset(scrollPos, el) + 'px';
+			el.style.cssText = 'background-position: center ' + this.getOffset(scrollPos, el) + 'px';
 		});
 	}
 

@@ -32,7 +32,7 @@ class Portfolio extends React.Component {
 	render() {
 		return (
 			<Router>
-				<div>
+				<div id='app'>
 					<header>
 						<div id='navbar'>
 							<div id='icon'>
