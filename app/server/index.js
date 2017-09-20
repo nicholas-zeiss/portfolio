@@ -25,7 +25,14 @@ const messageDefaults = {
 	to: 'nicholas.zeiss@gmail.com'
 };
 
+
+app.get('/', (req, res) => {
+	res.redirect(301, '/home');
+});
+
+
 app.use(express.static(path.join(__dirname, '../')));
+
 
 app.use('/email', bodyParser.urlencoded({ extended: true }));
 
@@ -33,6 +40,7 @@ app.use('/email', bodyParser.urlencoded({ extended: true }));
 app.get(/^\/(home|about|projects|contact)$/, (req, res) => {
 	res.sendFile(path.resolve(__dirname, '../index.html'));
 });
+
 
 app.get('*', (req, res) => {
 	res.redirect(301, '/home');

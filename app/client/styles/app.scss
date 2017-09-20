@@ -101,18 +101,7 @@ header {
 
 	@include transition(color, .25s);
 
-	&.active, &:hover {
-		color: $white;
-	
-		&::after {			
-			left: 0;
-			right: 0;
-
-			background-color: $white;
-		}
-	}
-
-	&::after {		
+	&::after {
 		position: absolute;
 		left: 50%;
 		right: 50%;
@@ -124,6 +113,22 @@ header {
 		background-color: $offwhite;
 		
 		@include transition((background-color, left, right, visibility), (.25s, .25s, .25s, 0s), (0s, 0s, 0s, .25s));
+	}
+
+	&.active {
+		color: $white;
+
+		&::after {
+			left: 0;
+			right: 0;
+
+			background-color: $white;
+		}
+	}
+
+	&:hover::after {
+		left: 0;
+		right: 0;
 	}
 }
 
